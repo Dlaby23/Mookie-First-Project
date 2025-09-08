@@ -372,9 +372,7 @@ body {
 }
 
 .calendar-day.monday .day-number {
-    background-color: #fde047;
-    color: #365314;
-    font-weight: 600;
+    color: #b8860b;
 }
 
 .calendar-day.tuesday .day-number {
@@ -895,4 +893,3 @@ body {
     white-space: nowrap;
     border: 0;
 }
-
