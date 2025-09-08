@@ -366,33 +366,34 @@ body {
 }
 
 
-/* Modern day-specific colors - subtle backgrounds */
+
+/* Day-specific colors - Applied consistently across all months */
 .calendar-day.sunday .day-number {
-    color: var(--sunday-color);
+    color: var(--sunday-color) !important;
 }
 
 .calendar-day.monday .day-number {
-    color: var(--monday-color);
+    color: var(--monday-color) !important;
 }
 
 .calendar-day.tuesday .day-number {
-    color: var(--tuesday-color);
+    color: var(--tuesday-color) !important;
 }
 
 .calendar-day.wednesday .day-number {
-    color: var(--wednesday-color);
+    color: var(--wednesday-color) !important;
 }
 
 .calendar-day.thursday .day-number {
-    color: var(--thursday-color);
+    color: var(--thursday-color) !important;
 }
 
 .calendar-day.friday .day-number {
-    color: var(--friday-color);
+    color: var(--friday-color) !important;
 }
 
 .calendar-day.saturday .day-number {
-    color: var(--saturday-color);
+    color: var(--saturday-color) !important;
 }
 
 .calendar-day:hover .day-number {
