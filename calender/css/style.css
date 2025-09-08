@@ -371,6 +371,10 @@ body {
     color: var(--sunday-color);
 }
 
+/* Monday Column Background */
+.calendar-day.monday {
+    background-color: #fefce8;
+}
 .calendar-day.monday .day-number {
     color: #b8860b;
 }
