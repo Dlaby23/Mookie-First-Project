@@ -142,8 +142,28 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="todoTime">Time</label>
-                        <input type="time" id="todoTime">
+                        <label for="todoTime">Time & Timezone</label>
+                        <div class="time-timezone-row">
+                            <input type="time" id="todoTime">
+                            <select id="todoTimezone">
+                                <option value="UTC">UTC</option>
+                                <option value="America/New_York">EST/EDT</option>
+                                <option value="America/Chicago">CST/CDT</option>
+                                <option value="America/Denver">MST/MDT</option>
+                                <option value="America/Los_Angeles">PST/PDT</option>
+                                <option value="Europe/London">GMT/BST</option>
+                                <option value="Europe/Paris">CET/CEST</option>
+                                <option value="Europe/Berlin">CET/CEST</option>
+                                <option value="Asia/Tokyo">JST</option>
+                                <option value="Asia/Shanghai">CST</option>
+                                <option value="Asia/Bangkok" selected>ICT (Bangkok)</option>
+                                <option value="Asia/Singapore">SGT</option>
+                                <option value="Asia/Dubai">GST</option>
+                                <option value="Asia/Kolkata">IST</option>
+                                <option value="Australia/Sydney">AEST/AEDT</option>
+                                <option value="Pacific/Auckland">NZST/NZDT</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">

@@ -131,6 +131,7 @@ class TodoManager {
             description: document.getElementById('todoDescription').value.trim(),
             date: document.getElementById('todoDate').value,
             time: document.getElementById('todoTime').value,
+            timezone: document.getElementById('todoTimezone').value,
             priority: document.getElementById('todoPriority').value,
             category: document.getElementById('todoCategory').value,
             recurring: document.getElementById('todoRecurring').checked
@@ -170,7 +171,7 @@ class TodoManager {
         const timeDisplay = todo.time ? 
             `<div class="todo-time">
                 <i class="fas fa-clock"></i>
-                ${this.formatTime(todo.time)}
+                ${this.formatTime(todo.time)} ${todo.timezone ? this.formatTimezone(todo.timezone) : ''}
              </div>` : '';
         
         const categoryDisplay = todo.category ? 
@@ -311,6 +312,28 @@ class TodoManager {
             other: 'Other'
         };
         return categories[category] || category;
+    }
+    
+    formatTimezone(timezone) {
+        const timezoneNames = {
+            'UTC': 'UTC',
+            'America/New_York': 'EST',
+            'America/Chicago': 'CST', 
+            'America/Denver': 'MST',
+            'America/Los_Angeles': 'PST',
+            'Europe/London': 'GMT',
+            'Europe/Paris': 'CET',
+            'Europe/Berlin': 'CET',
+            'Asia/Tokyo': 'JST',
+            'Asia/Shanghai': 'CST',
+            'Asia/Bangkok': 'ICT',
+            'Asia/Singapore': 'SGT',
+            'Asia/Dubai': 'GST',
+            'Asia/Kolkata': 'IST',
+            'Australia/Sydney': 'AEST',
+            'Pacific/Auckland': 'NZST'
+        };
+        return `(${timezoneNames[timezone] || timezone})`;
     }
     
     escapeHtml(text) {

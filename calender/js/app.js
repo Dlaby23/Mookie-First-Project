@@ -352,8 +352,9 @@ class CalendarApp {
     populateFormWithTodo(todo) {
         document.getElementById('todoTitle').value = todo.title || '';
         document.getElementById('todoDescription').value = todo.description || '';
-        document.getElementById('todoDate').value = this.formatDateForInput(new Date(todo.date));
+        document.getElementById('todoDate').value = this.formatDate(new Date(todo.date));
         document.getElementById('todoTime').value = todo.time || '';
+        document.getElementById('todoTimezone').value = todo.timezone || 'Asia/Bangkok';
         document.getElementById('todoPriority').value = todo.priority || 'medium';
         document.getElementById('todoCategory').value = todo.category || 'other';
         document.getElementById('todoRecurring').checked = todo.recurring || false;
@@ -364,6 +365,7 @@ class CalendarApp {
         document.getElementById('todoDescription').value = '';
         document.getElementById('todoDate').value = '';
         document.getElementById('todoTime').value = '';
+        document.getElementById('todoTimezone').value = 'Asia/Bangkok';
         document.getElementById('todoPriority').value = 'medium';
         document.getElementById('todoCategory').value = 'other';
         document.getElementById('todoRecurring').checked = false;
