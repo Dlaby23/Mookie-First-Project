@@ -702,11 +702,28 @@ body {
     color: var(--gray-700);
 }
 
-.date-picker-grid {
+.date-picker-weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 8px;
     margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.date-picker-weekday {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 8px 4px;
+}
+
+.date-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
 }
 
 .date-picker-day {
@@ -741,6 +758,13 @@ body {
     border-color: #ef4444;
     border-width: 2px;
     font-weight: 600;
+}
+
+.date-picker-day.empty {
+    border: none;
+    background: transparent;
+    cursor: default;
+    pointer-events: none;
 }
 
 @keyframes slideInUp {

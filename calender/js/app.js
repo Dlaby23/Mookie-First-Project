@@ -732,12 +732,20 @@ class CalendarApp {
         const year = this.currentDate.getFullYear();
         const month = this.currentDate.getMonth();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const today = new Date();
+        const firstDay = new Date(year, month, 1);
+        const startDay = firstDay.getDay(); // 0 = Sunday, 1 = Monday, etc.
         
         // Clear existing grid
         grid.innerHTML = '';
         
-        // Generate day buttons
+        // Add empty cells for days before the first day of the month
+        for (let i = 0; i < startDay; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.className = 'date-picker-day empty';
+            grid.appendChild(emptyCell);
+        }
+        
+        // Generate day buttons for current month
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(year, month, day);
             const dayBtn = document.createElement('button');
@@ -752,14 +760,24 @@ class CalendarApp {
             
             // Add click handler
             dayBtn.onclick = () => {
+                // Remove previous selection
+                grid.querySelectorAll('.date-picker-day.selected').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                
+                // Add selection to clicked day
+                dayBtn.classList.add('selected');
+                
                 // Update input value
                 const dateInput = document.getElementById('todoDate');
                 if (dateInput) {
                     dateInput.value = this.formatDate(date);
                 }
                 
-                // Close popup
-                this.closeDatePickerPopup();
+                // Close popup after a short delay for visual feedback
+                setTimeout(() => {
+                    this.closeDatePickerPopup();
+                }, 150);
             };
             
             grid.appendChild(dayBtn);
