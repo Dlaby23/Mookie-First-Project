@@ -345,8 +345,8 @@ body {
 }
 
 .calendar-day.today {
-    box-shadow: var(--shadow-lg);
-    border-color: var(--black);
+    border: 2px solid #ef4444;
+    border-radius: 50%;
 }
 
 .calendar-day.other-month {
