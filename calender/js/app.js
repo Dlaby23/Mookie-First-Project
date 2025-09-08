@@ -78,6 +78,7 @@ class CalendarApp {
         const searchInput = document.getElementById('searchInput');
         const statusFilter = document.getElementById('statusFilter');
         const priorityFilter = document.getElementById('priorityFilter');
+        const categoryFilter = document.getElementById('categoryFilter');
         
         if (searchInput) {
             searchInput.addEventListener('input', (e) => this.handleSearch(e.target.value));
@@ -89,6 +90,10 @@ class CalendarApp {
         
         if (priorityFilter) {
             priorityFilter.addEventListener('change', (e) => this.handlePriorityFilter(e.target.value));
+        }
+        
+        if (categoryFilter) {
+            categoryFilter.addEventListener('change', (e) => this.handleCategoryFilter(e.target.value));
         }
         
         // Todo panel
@@ -400,6 +405,11 @@ class CalendarApp {
         this.applyFilters();
     }
     
+    handleCategoryFilter(category) {
+        this.categoryFilter = category;
+        this.applyFilters();
+    }
+    
     applyFilters() {
         this.filteredTodos = this.todos.filter(todo => {
             // Search filter
@@ -418,6 +428,11 @@ class CalendarApp {
             // Priority filter
             if (this.priorityFilter && this.priorityFilter !== 'all') {
                 if (todo.priority !== this.priorityFilter) return false;
+            }
+            
+            // Category filter
+            if (this.categoryFilter && this.categoryFilter !== 'all') {
+                if (todo.category !== this.categoryFilter) return false;
             }
             
             return true;
