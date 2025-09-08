@@ -388,7 +388,7 @@ body {
 
 .calendar-day.monday .day-number {
     background: linear-gradient(135deg, var(--monday-color) 0%, #f39c12 100%);
-    color: var(--black);
+    color: var(--white);
 }
 
 .calendar-day.tuesday .day-number {
