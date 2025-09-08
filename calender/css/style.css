@@ -311,33 +311,40 @@ body {
     border-radius: var(--radius-md);
 }
 
-/* Weekday header colors */
+/* Weekday header colors with backgrounds */
 .weekday.sunday {
-    color: #ff0000; /* Red */
+    background-color: #ff0000; /* Red background */
+    color: white;
 }
 
 .weekday.monday {
-    color: #ffff00; /* Yellow */
+    background-color: #ffff00; /* Yellow background */
+    color: white;
 }
 
 .weekday.tuesday {
-    color: #ff69b4; /* Pink */
+    background-color: #ff69b4; /* Pink background */
+    color: white;
 }
 
 .weekday.wednesday {
-    color: #00ff00; /* Green */
+    background-color: #00ff00; /* Green background */
+    color: white;
 }
 
 .weekday.thursday {
-    color: #ffa726; /* Orange */
+    background-color: #ffa726; /* Orange background */
+    color: white;
 }
 
 .weekday.friday {
-    color: #0000ff; /* Blue */
+    background-color: #0000ff; /* Blue background */
+    color: white;
 }
 
 .weekday.saturday {
-    color: #800080; /* Purple */
+    background-color: #800080; /* Purple background */
+    color: white;
 }
 
 
