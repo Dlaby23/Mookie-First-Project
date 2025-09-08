@@ -29,8 +29,7 @@ class CalendarApp {
             // Render initial calendar
             this.calendar.render();
             
-            // Set today as selected date initially
-            this.selectDate(new Date());
+            // Don't auto-select today's date - let user select manually
             
             console.log('Calendar app initialized successfully');
         } catch (error) {
