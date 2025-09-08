@@ -307,29 +307,8 @@ class CalendarApp {
         
         if (!modal || !modalTitle || !form) return;
         
-        // Populate date select with current month dates
-        const dateSelect = document.getElementById('todoDate');
-        if (dateSelect) {
-            const currentDate = this.currentDate;
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth();
-            
-            // Get number of days in current month
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            
-            // Clear existing options
-            dateSelect.innerHTML = '<option value="">Select date...</option>';
-            
-            // Add option for each day of the month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const date = new Date(year, month, day);
-                const dateStr = this.formatDateForInput(date);
-                const option = document.createElement('option');
-                option.value = dateStr;
-                option.textContent = `${day}${this.getOrdinalSuffix(day)} - ${this.formatDate(date)}`;
-                dateSelect.appendChild(option);
-            }
-        }
+        // Setup custom date picker
+        this.setupCustomDatePicker();
         
         // Set modal title and form data
         if (todo) {
@@ -340,8 +319,11 @@ class CalendarApp {
             this.clearForm();
             
             // Pre-fill date if a date is selected
-            if (this.selectedDate && dateSelect) {
-                dateSelect.value = this.formatDateForInput(this.selectedDate);
+            if (this.selectedDate) {
+                const dateInput = document.getElementById('todoDate');
+                if (dateInput) {
+                    dateInput.value = this.formatDate(this.selectedDate);
+                }
             }
         }
         
@@ -682,6 +664,105 @@ class CalendarApp {
             case 2: return 'nd';
             case 3: return 'rd';
             default: return 'th';
+        }
+    }
+    
+    // Setup custom date picker
+    setupCustomDatePicker() {
+        const openBtn = document.getElementById('openDatePicker');
+        const closeBtn = document.getElementById('closeDatePicker');
+        const overlay = document.getElementById('datePickerOverlay');
+        const dateInput = document.getElementById('todoDate');
+        
+        // Open date picker
+        if (openBtn) {
+            openBtn.onclick = () => this.openDatePickerPopup();
+        }
+        
+        // Also open when clicking the input
+        if (dateInput) {
+            dateInput.onclick = () => this.openDatePickerPopup();
+        }
+        
+        // Close date picker
+        if (closeBtn) {
+            closeBtn.onclick = () => this.closeDatePickerPopup();
+        }
+        
+        // Close when clicking overlay
+        if (overlay) {
+            overlay.onclick = (e) => {
+                if (e.target === overlay) {
+                    this.closeDatePickerPopup();
+                }
+            };
+        }
+    }
+    
+    // Open date picker popup
+    openDatePickerPopup() {
+        const overlay = document.getElementById('datePickerOverlay');
+        const monthTitle = document.getElementById('datePickerMonth');
+        const grid = document.getElementById('datePickerGrid');
+        
+        if (!overlay || !grid) return;
+        
+        // Set month title
+        if (monthTitle) {
+            monthTitle.textContent = this.formatMonthYear(this.currentDate);
+        }
+        
+        // Generate date grid
+        this.generateDateGrid(grid);
+        
+        // Show overlay
+        overlay.classList.add('active');
+    }
+    
+    // Close date picker popup
+    closeDatePickerPopup() {
+        const overlay = document.getElementById('datePickerOverlay');
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+    }
+    
+    // Generate date grid for current month
+    generateDateGrid(grid) {
+        const year = this.currentDate.getFullYear();
+        const month = this.currentDate.getMonth();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const today = new Date();
+        
+        // Clear existing grid
+        grid.innerHTML = '';
+        
+        // Generate day buttons
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(year, month, day);
+            const dayBtn = document.createElement('button');
+            dayBtn.type = 'button';
+            dayBtn.className = 'date-picker-day';
+            dayBtn.textContent = day;
+            
+            // Add today class if it's today
+            if (this.isToday(date)) {
+                dayBtn.classList.add('today');
+            }
+            
+            // Add click handler
+            dayBtn.onclick = () => {
+                // Update input value
+                const dateInput = document.getElementById('todoDate');
+                if (dateInput) {
+                    dateInput.value = this.formatDate(date);
+                }
+                
+                // Close popup
+                this.closeDatePickerPopup();
+            };
+            
+            grid.appendChild(dayBtn);
         }
     }
 }
