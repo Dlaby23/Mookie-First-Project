@@ -339,10 +339,7 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-.calendar-day.selected {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
+.calendar-day.selected {}
 
 .calendar-day.today {}
 
@@ -406,8 +403,13 @@ body {
 
 .calendar-day.selected .day-number {
     font-weight: 600;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calendar-day.today .day-number {
