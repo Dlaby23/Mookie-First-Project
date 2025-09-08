@@ -363,38 +363,38 @@ body {
     position: relative;
     transition: all 0.2s ease;
     letter-spacing: 0;
-    color: inherit; /* Inherit color from day-specific rules */
+    /* No default color - let day-specific rules handle it */
 }
 
 
 
 /* Day-specific colors - Applied consistently across all months */
 .calendar-day.sunday .day-number {
-    color: var(--sunday-color) !important;
+    color: #ff4757 !important; /* Red */
 }
 
 .calendar-day.monday .day-number {
-    color: var(--monday-color) !important;
+    color: #ffd700 !important; /* Yellow */
 }
 
 .calendar-day.tuesday .day-number {
-    color: var(--tuesday-color) !important;
+    color: #ff6b9d !important; /* Pink */
 }
 
 .calendar-day.wednesday .day-number {
-    color: var(--wednesday-color) !important;
+    color: #2ed573 !important; /* Green */
 }
 
 .calendar-day.thursday .day-number {
-    color: var(--thursday-color) !important;
+    color: #ffa726 !important; /* Orange */
 }
 
 .calendar-day.friday .day-number {
-    color: var(--friday-color) !important;
+    color: #3b82f6 !important; /* Blue */
 }
 
 .calendar-day.saturday .day-number {
-    color: var(--saturday-color) !important;
+    color: #9c27b0 !important; /* Purple */
 }
 
 .calendar-day:hover .day-number {
