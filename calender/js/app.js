@@ -10,6 +10,9 @@ class CalendarApp {
         this.todos = [];
         this.filteredTodos = [];
         
+        // Thai Special Dates (2024-2025)
+        this.thaiSpecialDates = this.initThaiSpecialDates();
+        
         // Initialize the application
         this.init();
     }
@@ -484,6 +487,57 @@ class CalendarApp {
                 }
             }, 300);
         }, 3000);
+    }
+    
+    // Thai Special Dates
+    initThaiSpecialDates() {
+        return {
+            // 2024 Thai Holidays and Special Days
+            '2024-01-01': { name: 'New Year\'s Day', type: 'national', color: '#ef4444' },
+            '2024-02-24': { name: 'Makha Bucha Day', type: 'buddhist', color: '#f59e0b' },
+            '2024-04-06': { name: 'Chakri Dynasty Day', type: 'national', color: '#ef4444' },
+            '2024-04-13': { name: 'Songkran Festival (Day 1)', type: 'festival', color: '#06b6d4' },
+            '2024-04-14': { name: 'Songkran Festival (Day 2)', type: 'festival', color: '#06b6d4' },
+            '2024-04-15': { name: 'Songkran Festival (Day 3)', type: 'festival', color: '#06b6d4' },
+            '2024-05-01': { name: 'National Labour Day', type: 'national', color: '#ef4444' },
+            '2024-05-04': { name: 'Coronation Day', type: 'royal', color: '#7c3aed' },
+            '2024-05-22': { name: 'Visakha Bucha Day', type: 'buddhist', color: '#f59e0b' },
+            '2024-06-03': { name: 'Queen Suthida\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2024-07-20': { name: 'Buddhist Lent Day', type: 'buddhist', color: '#f59e0b' },
+            '2024-07-28': { name: 'King Vajiralongkorn\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2024-08-12': { name: 'Queen Sirikit\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2024-10-13': { name: 'King Bhumibol Memorial Day', type: 'royal', color: '#7c3aed' },
+            '2024-10-23': { name: 'Chulalongkorn Day', type: 'royal', color: '#7c3aed' },
+            '2024-12-05': { name: 'King Bhumibol\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2024-12-10': { name: 'Constitution Day', type: 'national', color: '#ef4444' },
+            '2024-12-31': { name: 'New Year\'s Eve', type: 'festival', color: '#06b6d4' },
+            
+            // 2025 Thai Holidays and Special Days
+            '2025-01-01': { name: 'New Year\'s Day', type: 'national', color: '#ef4444' },
+            '2025-02-12': { name: 'Makha Bucha Day', type: 'buddhist', color: '#f59e0b' },
+            '2025-04-06': { name: 'Chakri Dynasty Day', type: 'national', color: '#ef4444' },
+            '2025-04-13': { name: 'Songkran Festival (Day 1)', type: 'festival', color: '#06b6d4' },
+            '2025-04-14': { name: 'Songkran Festival (Day 2)', type: 'festival', color: '#06b6d4' },
+            '2025-04-15': { name: 'Songkran Festival (Day 3)', type: 'festival', color: '#06b6d4' },
+            '2025-05-01': { name: 'National Labour Day', type: 'national', color: '#ef4444' },
+            '2025-05-04': { name: 'Coronation Day', type: 'royal', color: '#7c3aed' },
+            '2025-05-11': { name: 'Visakha Bucha Day', type: 'buddhist', color: '#f59e0b' },
+            '2025-06-03': { name: 'Queen Suthida\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2025-07-09': { name: 'Buddhist Lent Day', type: 'buddhist', color: '#f59e0b' },
+            '2025-07-28': { name: 'King Vajiralongkorn\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2025-08-12': { name: 'Queen Sirikit\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2025-10-13': { name: 'King Bhumibol Memorial Day', type: 'royal', color: '#7c3aed' },
+            '2025-10-23': { name: 'Chulalongkorn Day', type: 'royal', color: '#7c3aed' },
+            '2025-12-05': { name: 'King Bhumibol\'s Birthday', type: 'royal', color: '#7c3aed' },
+            '2025-12-10': { name: 'Constitution Day', type: 'national', color: '#ef4444' },
+            '2025-12-31': { name: 'New Year\'s Eve', type: 'festival', color: '#06b6d4' }
+        };
+    }
+    
+    // Check if a date is a Thai special date
+    isThaiSpecialDate(date) {
+        const dateStr = this.formatDateForStorage(date);
+        return this.thaiSpecialDates[dateStr] || null;
     }
 }
 

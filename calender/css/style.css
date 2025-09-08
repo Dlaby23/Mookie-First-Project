@@ -445,6 +445,51 @@ body {
     visibility: visible;
     transform: scale(1);
 }
+/* Thai Special Date Styling */
+.thai-indicator {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: help;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-day.thai-special {
+    position: relative;
+}
+
+.calendar-day.thai-special .day-number {
+    font-weight: 600;
+}
+
+/* Thai holiday types with different border styles */
+.calendar-day.thai-special[data-thai-type="national"] {
+    border-left: 3px solid #ef4444;
+}
+
+.calendar-day.thai-special[data-thai-type="royal"] {
+    border-left: 3px solid #7c3aed;
+}
+
+.calendar-day.thai-special[data-thai-type="buddhist"] {
+    border-left: 3px solid #f59e0b;
+}
+
+.calendar-day.thai-special[data-thai-type="festival"] {
+    border-left: 3px solid #06b6d4;
+}
+
+/* Hover effect for Thai special dates */
+.calendar-day.thai-special:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Todo Indicators */
 .todo-indicators {
     display: flex;

@@ -100,11 +100,28 @@ class CalendarManager {
             dayElement.classList.add('today');
         }
         
+        // Check for Thai special dates
+        const thaiSpecialDate = this.app.isThaiSpecialDate(date);
+        if (thaiSpecialDate) {
+            dayElement.classList.add('thai-special');
+            dayElement.setAttribute('data-thai-holiday', thaiSpecialDate.name);
+            dayElement.setAttribute('data-thai-type', thaiSpecialDate.type);
+        }
+        
         // Create day number element
         const dayNumberEl = document.createElement('div');
         dayNumberEl.className = 'day-number';
         dayNumberEl.textContent = dayNumber;
         dayElement.appendChild(dayNumberEl);
+        
+        // Add Thai special date indicator
+        if (thaiSpecialDate) {
+            const thaiIndicator = document.createElement('div');
+            thaiIndicator.className = 'thai-indicator';
+            thaiIndicator.style.backgroundColor = thaiSpecialDate.color;
+            thaiIndicator.setAttribute('title', thaiSpecialDate.name);
+            dayElement.appendChild(thaiIndicator);
+        }
         
         // Create todo indicators container
         const indicatorsEl = document.createElement('div');
