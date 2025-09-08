@@ -316,22 +316,49 @@ class TodoManager {
     
     formatTimezone(timezone) {
         const timezoneNames = {
+            // Universal
             'UTC': 'UTC',
-            'America/New_York': 'EST',
-            'America/Chicago': 'CST', 
-            'America/Denver': 'MST',
-            'America/Los_Angeles': 'PST',
+            
+            // Asia Pacific
+            'Asia/Bangkok': 'ICT',
+            'Asia/Jakarta': 'WIB', 
+            'Asia/Singapore': 'SGT',
+            'Asia/Kuala_Lumpur': 'MYT',
+            'Asia/Manila': 'PHT',
+            'Asia/Ho_Chi_Minh': 'ICT',
+            'Asia/Tokyo': 'JST',
+            'Asia/Seoul': 'KST',
+            'Asia/Shanghai': 'CST',
+            'Asia/Hong_Kong': 'HKT',
+            'Asia/Taipei': 'CST',
+            'Asia/Kolkata': 'IST',
+            'Asia/Dubai': 'GST',
+            'Australia/Sydney': 'AEST',
+            'Pacific/Auckland': 'NZST',
+            
+            // Europe
             'Europe/London': 'GMT',
             'Europe/Paris': 'CET',
             'Europe/Berlin': 'CET',
-            'Asia/Tokyo': 'JST',
-            'Asia/Shanghai': 'CST',
-            'Asia/Bangkok': 'ICT',
-            'Asia/Singapore': 'SGT',
-            'Asia/Dubai': 'GST',
-            'Asia/Kolkata': 'IST',
-            'Australia/Sydney': 'AEST',
-            'Pacific/Auckland': 'NZST'
+            'Europe/Rome': 'CET',
+            'Europe/Madrid': 'CET',
+            'Europe/Amsterdam': 'CET',
+            'Europe/Moscow': 'MSK',
+            
+            // Americas
+            'America/New_York': 'EST',
+            'America/Chicago': 'CST',
+            'America/Denver': 'MST',
+            'America/Los_Angeles': 'PST',
+            'America/Toronto': 'EST',
+            'America/Mexico_City': 'CST',
+            'America/Sao_Paulo': 'BRT',
+            'America/Buenos_Aires': 'ART',
+            
+            // Africa & Middle East
+            'Africa/Cairo': 'EET',
+            'Africa/Johannesburg': 'SAST',
+            'Africa/Lagos': 'WAT'
         };
         return `(${timezoneNames[timezone] || timezone})`;
     }
