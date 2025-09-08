@@ -370,31 +370,31 @@ body {
 
 /* Day-specific colors - Applied consistently across all months */
 .calendar-day.sunday .day-number {
-    color: #ff4757 !important; /* Red */
+    color: #ff0000 !important; /* Red */
 }
 
 .calendar-day.monday .day-number {
-    color: #ffd700 !important; /* Yellow */
+    color: #ffff00 !important; /* Yellow */
 }
 
 .calendar-day.tuesday .day-number {
-    color: #ff6b9d !important; /* Pink */
+    color: #ff69b4 !important; /* Pink */
 }
 
 .calendar-day.wednesday .day-number {
-    color: #2ed573 !important; /* Green */
+    color: #00ff00 !important; /* Green */
 }
 
 .calendar-day.thursday .day-number {
-    color: #ffa726 !important; /* Orange */
+    color: #ffa726 !important; /* Orange (kept as was) */
 }
 
 .calendar-day.friday .day-number {
-    color: #3b82f6 !important; /* Blue */
+    color: #0000ff !important; /* Blue */
 }
 
 .calendar-day.saturday .day-number {
-    color: #9c27b0 !important; /* Purple */
+    color: #800080 !important; /* Purple */
 }
 
 .calendar-day:hover .day-number {
