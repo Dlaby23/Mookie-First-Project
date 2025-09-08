@@ -344,7 +344,7 @@ body {
 .calendar-day.today {}
 
 .calendar-day.other-month {
-    display: none;
+    visibility: hidden;
 }
 
 /* Modern Minimal Date Numbers */
