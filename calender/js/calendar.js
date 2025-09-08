@@ -104,6 +104,14 @@ class CalendarManager {
         const dayNumberEl = document.createElement('div');
         dayNumberEl.className = 'day-number';
         dayNumberEl.textContent = dayNumber;
+
+        // Apply banana yellow color to specific dates
+        const bananaYellowDates = [1, 6, 8, 15, 22, 29];
+        if (bananaYellowDates.includes(dayNumber)) {
+            dayNumberEl.style.backgroundColor = "#fde047";
+            dayNumberEl.style.color = "#365314";
+            dayNumberEl.style.fontWeight = "600";
+        }
         dayElement.appendChild(dayNumberEl);
         
         // Create todo indicators container
