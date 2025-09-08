@@ -421,6 +421,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
 }
 /* Todo Indicators */
 .todo-indicators {
