@@ -344,7 +344,7 @@ body {
 .calendar-day.today {}
 
 .calendar-day.other-month {
-    opacity: 0.3;
+    display: none;
 }
 
 /* Modern Minimal Date Numbers */
@@ -456,7 +456,7 @@ body {
 .todo-dot.high-priority { background-color: var(--high-priority); }
 .todo-dot.medium-priority { background-color: var(--medium-priority); }
 .todo-dot.low-priority { background-color: var(--low-priority); }
-.todo-dot.completed { opacity: 0.3; }
+.todo-dot.completed { display: none; }
 
 /* Todo Panel */
 .todo-panel {
