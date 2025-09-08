@@ -530,7 +530,33 @@ class CalendarApp {
             '2025-10-23': { name: 'Chulalongkorn Day', type: 'royal', color: '#7c3aed' },
             '2025-12-05': { name: 'King Bhumibol\'s Birthday', type: 'royal', color: '#7c3aed' },
             '2025-12-10': { name: 'Constitution Day', type: 'national', color: '#ef4444' },
-            '2025-12-31': { name: 'New Year\'s Eve', type: 'festival', color: '#06b6d4' }
+            '2025-12-31': { name: 'New Year\'s Eve', type: 'festival', color: '#06b6d4' },
+            
+            // International Special Dates (2024)
+            '2024-02-14': { name: 'Valentine\'s Day', type: 'international', color: '#ec4899' },
+            '2024-03-17': { name: 'St. Patrick\'s Day', type: 'international', color: '#10b981' },
+            '2024-03-31': { name: 'Easter Sunday', type: 'international', color: '#a855f7' },
+            '2024-04-01': { name: 'April Fool\'s Day', type: 'international', color: '#f97316' },
+            '2024-05-12': { name: 'Mother\'s Day', type: 'international', color: '#ec4899' },
+            '2024-06-16': { name: 'Father\'s Day', type: 'international', color: '#3b82f6' },
+            '2024-07-04': { name: 'Independence Day (US)', type: 'international', color: '#ef4444' },
+            '2024-10-31': { name: 'Halloween', type: 'international', color: '#f97316' },
+            '2024-11-28': { name: 'Thanksgiving (US)', type: 'international', color: '#f59e0b' },
+            '2024-12-24': { name: 'Christmas Eve', type: 'international', color: '#10b981' },
+            '2024-12-25': { name: 'Christmas Day', type: 'international', color: '#ef4444' },
+            
+            // International Special Dates (2025)
+            '2025-02-14': { name: 'Valentine\'s Day', type: 'international', color: '#ec4899' },
+            '2025-03-17': { name: 'St. Patrick\'s Day', type: 'international', color: '#10b981' },
+            '2025-04-01': { name: 'April Fool\'s Day', type: 'international', color: '#f97316' },
+            '2025-04-20': { name: 'Easter Sunday', type: 'international', color: '#a855f7' },
+            '2025-05-11': { name: 'Mother\'s Day', type: 'international', color: '#ec4899' },
+            '2025-06-15': { name: 'Father\'s Day', type: 'international', color: '#3b82f6' },
+            '2025-07-04': { name: 'Independence Day (US)', type: 'international', color: '#ef4444' },
+            '2025-10-31': { name: 'Halloween', type: 'international', color: '#f97316' },
+            '2025-11-27': { name: 'Thanksgiving (US)', type: 'international', color: '#f59e0b' },
+            '2025-12-24': { name: 'Christmas Eve', type: 'international', color: '#10b981' },
+            '2025-12-25': { name: 'Christmas Day', type: 'international', color: '#ef4444' }
         };
     }
     

@@ -483,6 +483,10 @@ body {
     border-left: 3px solid #06b6d4;
 }
 
+.calendar-day.thai-special[data-thai-type="international"] {
+    border-left: 3px solid #ec4899;
+}
+
 /* Hover effect for Thai special dates */
 .calendar-day.thai-special:hover {
     background-color: rgba(0, 0, 0, 0.02);
