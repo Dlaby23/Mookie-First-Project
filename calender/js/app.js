@@ -165,12 +165,21 @@ class CalendarApp {
         const panel = document.getElementById('todoPanel');
         const titleEl = document.getElementById('selectedDateTitle');
         const todoListEl = document.getElementById('todoList');
+        const holidayInfoEl = document.getElementById('holidayInfo');
         
         if (!this.selectedDate || !panel || !titleEl || !todoListEl) return;
         
         // Update panel title
         const dateStr = this.formatDate(this.selectedDate);
         titleEl.textContent = dateStr;
+        
+        // Check for holiday information
+        const holidayInfo = this.isThaiSpecialDate(this.selectedDate);
+        if (holidayInfo && holidayInfoEl) {
+            this.displayHolidayInfo(holidayInfo);
+        } else if (holidayInfoEl) {
+            holidayInfoEl.style.display = 'none';
+        }
         
         // Get todos for selected date
         const dateTodos = this.getTodosForDate(this.selectedDate);
@@ -212,6 +221,82 @@ class CalendarApp {
         if (panel) {
             panel.classList.remove('active');
         }
+    }
+    
+    // Holiday Display Methods
+    displayHolidayInfo(holidayInfo) {
+        const holidayInfoEl = document.getElementById('holidayInfo');
+        const holidayBannerEl = document.getElementById('holidayBanner');
+        const holidayIconEl = document.getElementById('holidayIcon');
+        const holidayNameEl = document.getElementById('holidayName');
+        const holidayTypeEl = document.getElementById('holidayType');
+        
+        if (!holidayInfoEl || !holidayBannerEl) return;
+        
+        // Set holiday details
+        if (holidayNameEl) holidayNameEl.textContent = holidayInfo.name;
+        if (holidayTypeEl) holidayTypeEl.textContent = this.getHolidayTypeDisplay(holidayInfo.type);
+        
+        // Set icon based on holiday type
+        if (holidayIconEl) {
+            holidayIconEl.textContent = this.getHolidayIcon(holidayInfo.name, holidayInfo.type);
+        }
+        
+        // Set banner style based on type
+        holidayBannerEl.className = `holiday-banner ${holidayInfo.type}`;
+        
+        // Show the holiday info section
+        holidayInfoEl.style.display = 'block';
+    }
+    
+    getHolidayTypeDisplay(type) {
+        const typeDisplayMap = {
+            'national': 'Thai National Holiday',
+            'royal': 'Thai Royal Holiday',
+            'buddhist': 'Buddhist Holiday',
+            'festival': 'Thai Festival',
+            'international': 'International Holiday'
+        };
+        return typeDisplayMap[type] || type;
+    }
+    
+    getHolidayIcon(name, type) {
+        // Specific holiday icons
+        const holidayIcons = {
+            'New Year\'s Day': '🎊',
+            'New Year\'s Eve': '🎊',
+            'Valentine\'s Day': '💖',
+            'St. Patrick\'s Day': '🍀',
+            'Easter Sunday': '🐰',
+            'April Fool\'s Day': '😄',
+            'Mother\'s Day': '💐',
+            'Father\'s Day': '👔',
+            'Independence Day (US)': '🇺🇸',
+            'Halloween': '🎃',
+            'Thanksgiving (US)': '🦃',
+            'Christmas Eve': '🎄',
+            'Christmas Day': '🎅',
+            'Songkran Festival': '💧',
+            'Makha Bucha Day': '🙏',
+            'Visakha Bucha Day': '🙏',
+            'Buddhist Lent Day': '🙏'
+        };
+        
+        // Check for specific holiday first
+        if (holidayIcons[name]) {
+            return holidayIcons[name];
+        }
+        
+        // Fallback to type-based icons
+        const typeIcons = {
+            'national': '🇹🇭',
+            'royal': '👑',
+            'buddhist': '🙏',
+            'festival': '🎉',
+            'international': '🌍'
+        };
+        
+        return typeIcons[type] || '🎉';
     }
     
     // Modal Methods
