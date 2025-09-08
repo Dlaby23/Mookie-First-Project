@@ -1,0 +1,331 @@
+/* Responsive Design */
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .app-container {
+        padding: var(--spacing-md);
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .todo-panel {
+        order: -1;
+        max-height: 300px;
+    }
+    
+    .app-header {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .header-right {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .calendar-nav {
+        gap: var(--spacing-md);
+    }
+    
+    .current-month {
+        font-size: 1.25rem;
+        min-width: 150px;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .filter-options {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+    }
+    
+    .day-number {
+        font-size: 1.25rem;
+        min-width: 32px;
+        height: 32px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .app-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .app-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    .header-right {
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.75rem;
+    }
+    
+    .calendar-nav {
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .current-month {
+        font-size: 1.125rem;
+        min-width: 120px;
+    }
+    
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .filter-bar {
+        padding: var(--spacing-md);
+    }
+    
+    .filter-options {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .filter-options select {
+        width: 100%;
+    }
+    
+    .calendar-container {
+        padding: var(--spacing-md);
+    }
+    
+    .calendar-day {
+        min-height: 70px;
+        padding: var(--spacing-xs);
+    }
+    
+    .day-number {
+        font-size: 1.125rem;
+        min-width: 28px;
+        height: 28px;
+    }
+    
+    .weekday {
+        font-size: 0.75rem;
+        padding: var(--spacing-sm);
+    }
+    
+    /* Todo Panel Mobile Overlay */
+    .todo-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 500;
+        max-height: none;
+        border-radius: 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        order: unset;
+    }
+    
+    .todo-panel.active {
+        transform: translateY(0);
+    }
+    
+    .close-panel {
+        display: flex !important;
+    }
+    
+    .todo-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .todo-actions {
+        opacity: 1;
+    }
+    
+    .todo-actions button {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+    }
+    
+    /* Show FAB on mobile */
+    .fab {
+        display: flex !important;
+    }
+    
+    /* Hide desktop add button on mobile */
+    #addTodoBtn {
+        display: none;
+    }
+    
+    /* Modal adjustments */
+    .modal {
+        width: 95%;
+        margin: var(--spacing-md);
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .modal-actions {
+        flex-direction: column-reverse;
+        gap: var(--spacing-sm);
+    }
+    
+    .modal-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .app-title {
+        font-size: 1.75rem;
+    }
+    
+    .calendar-day {
+        min-height: 60px;
+    }
+    
+    .day-number {
+        font-size: 1rem;
+        min-width: 24px;
+        height: 24px;
+    }
+    
+    .weekday {
+        font-size: 0.625rem;
+        padding: var(--spacing-xs);
+    }
+    
+    .todo-indicators {
+        gap: 1px;
+    }
+    
+    .todo-dot {
+        width: 4px;
+        height: 4px;
+    }
+    
+    .calendar-grid {
+        gap: 2px;
+    }
+    
+    .fab {
+        bottom: var(--spacing-lg);
+        right: var(--spacing-lg);
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+}
+
+/* Landscape mobile styles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .app-header {
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-md);
+    }
+    
+    .calendar-nav {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .filter-bar {
+        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+    
+    .calendar-day {
+        min-height: 50px;
+    }
+    
+    .day-number {
+        font-size: 0.875rem;
+        min-width: 20px;
+        height: 20px;
+    }
+}
+
+/* High DPI/Retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .day-number {
+        text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn {
+        box-shadow: var(--shadow-sm);
+    }
+}
+
+/* Dark mode support (system preference) */
+@media (prefers-color-scheme: dark) {
+    /* This could be used if implementing dark mode in the future */
+    .weekday {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .calendar-day,
+    .todo-item {
+        animation: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .app-header,
+    .filter-bar,
+    .todo-panel,
+    .fab,
+    .modal-overlay {
+        display: none !important;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-container {
+        box-shadow: none;
+        border: 1px solid var(--gray-400);
+    }
+    
+    .calendar-day {
+        border: 1px solid var(--gray-300);
+        box-shadow: none;
+    }
+    
+    .day-number {
+        box-shadow: none;
+        text-shadow: none;
+    }
+}
