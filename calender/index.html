@@ -31,15 +31,6 @@
             </div>
         </header>
 
-        <!-- Calendar Navigation -->
-        <div class="calendar-nav">
-            <button class="nav-btn" id="prevMonth">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="nav-btn" id="nextMonth">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
 
         <!-- Search and Filter Bar -->
         <div class="filter-bar">
@@ -66,7 +57,15 @@
         <div class="main-content">
             <!-- Calendar Grid -->
             <div class="calendar-container">
-                <h2 class="current-month" id="currentMonth">January 2024</h2>
+                <div class="calendar-header">
+                    <button class="nav-btn" id="prevMonth">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h2 class="current-month" id="currentMonth">January 2024</h2>
+                    <button class="nav-btn" id="nextMonth">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
                 <div class="weekdays">
                     <div class="weekday sunday">Sun</div>
                     <div class="weekday monday">Mon</div>

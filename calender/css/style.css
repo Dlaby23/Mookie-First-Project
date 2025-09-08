@@ -199,8 +199,16 @@ body {
     font-weight: 600;
     color: var(--black);
     text-align: center;
-    margin: 0 0 var(--spacing-lg) 0;
-    padding: var(--spacing-md) 0;
+    margin: 0;
+    padding: 0;
+}
+/* Calendar Header with Navigation */
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
 }
 
 /* Filter Bar */
