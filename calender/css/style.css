@@ -363,6 +363,7 @@ body {
     position: relative;
     transition: all 0.2s ease;
     letter-spacing: 0;
+    color: inherit; /* Inherit color from day-specific rules */
 }
 
 
