@@ -414,16 +414,15 @@ body {
 
 .calendar-day.today .day-number {
     font-weight: 600;
-    border: 2px solid #ef4444;
+    border: 3px solid #ef4444;
     border-radius: 50%;
-    width: 72px;
-    height: 72px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
     position: relative;
-    top: 0;
+    z-index: 2;
 }
 /* Todo Indicators */
 .todo-indicators {
