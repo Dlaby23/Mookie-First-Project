@@ -679,11 +679,42 @@ body {
     margin-bottom: 20px;
 }
 
+.date-picker-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.date-picker-nav-btn {
+    background: none;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.date-picker-nav-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
 .date-picker-header h3 {
     margin: 0;
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--gray-800);
+    min-width: 200px;
+    text-align: center;
 }
 
 .close-date-picker {

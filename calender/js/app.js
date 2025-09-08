@@ -671,6 +671,8 @@ class CalendarApp {
     setupCustomDatePicker() {
         const openBtn = document.getElementById('openDatePicker');
         const closeBtn = document.getElementById('closeDatePicker');
+        const prevBtn = document.getElementById('datePickerPrev');
+        const nextBtn = document.getElementById('datePickerNext');
         const overlay = document.getElementById('datePickerOverlay');
         const dateInput = document.getElementById('todoDate');
         
@@ -687,6 +689,15 @@ class CalendarApp {
         // Close date picker
         if (closeBtn) {
             closeBtn.onclick = () => this.closeDatePickerPopup();
+        }
+        
+        // Navigation buttons
+        if (prevBtn) {
+            prevBtn.onclick = () => this.navigateDatePicker(-1);
+        }
+        
+        if (nextBtn) {
+            nextBtn.onclick = () => this.navigateDatePicker(1);
         }
         
         // Close when clicking overlay
@@ -724,6 +735,25 @@ class CalendarApp {
         const overlay = document.getElementById('datePickerOverlay');
         if (overlay) {
             overlay.classList.remove('active');
+        }
+    }
+    
+    // Navigate date picker to previous/next month
+    navigateDatePicker(direction) {
+        // Update currentDate for date picker
+        const newDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + direction, 1);
+        this.currentDate = newDate;
+        
+        // Update month title
+        const monthTitle = document.getElementById('datePickerMonth');
+        if (monthTitle) {
+            monthTitle.textContent = this.formatMonthYear(this.currentDate);
+        }
+        
+        // Regenerate date grid
+        const grid = document.getElementById('datePickerGrid');
+        if (grid) {
+            this.generateDateGrid(grid);
         }
     }
     
