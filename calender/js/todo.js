@@ -126,10 +126,13 @@ class TodoManager {
     
     // Form Management
     getFormData() {
+        const dateInput = document.getElementById('todoDate');
+        const selectedDate = dateInput.getAttribute('data-selected-date') || dateInput.value;
+        
         return {
             title: document.getElementById('todoTitle').value.trim(),
             description: document.getElementById('todoDescription').value.trim(),
-            date: document.getElementById('todoDate').value,
+            date: selectedDate,
             time: document.getElementById('todoTime').value,
             timezone: document.getElementById('todoTimezone').value,
             priority: document.getElementById('todoPriority').value,

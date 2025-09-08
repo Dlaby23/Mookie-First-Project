@@ -323,6 +323,7 @@ class CalendarApp {
                 const dateInput = document.getElementById('todoDate');
                 if (dateInput) {
                     dateInput.value = this.formatDate(this.selectedDate);
+                    dateInput.setAttribute('data-selected-date', this.formatDateForStorage(this.selectedDate));
                 }
             }
         }
@@ -350,9 +351,13 @@ class CalendarApp {
     }
     
     populateFormWithTodo(todo) {
+        const dateInput = document.getElementById('todoDate');
+        const todoDate = new Date(todo.date);
+        
         document.getElementById('todoTitle').value = todo.title || '';
         document.getElementById('todoDescription').value = todo.description || '';
-        document.getElementById('todoDate').value = this.formatDate(new Date(todo.date));
+        dateInput.value = this.formatDate(todoDate);
+        dateInput.setAttribute('data-selected-date', todo.date); // Store original date format
         document.getElementById('todoTime').value = todo.time || '';
         document.getElementById('todoTimezone').value = todo.timezone || 'Asia/Bangkok';
         document.getElementById('todoPriority').value = todo.priority || 'medium';
@@ -800,10 +805,12 @@ class CalendarApp {
                 // Add selection to clicked day
                 dayBtn.classList.add('selected');
                 
-                // Update input value
+                // Update input value with display format
                 const dateInput = document.getElementById('todoDate');
                 if (dateInput) {
                     dateInput.value = this.formatDate(date);
+                    // Store the actual date in a data attribute for form processing
+                    dateInput.setAttribute('data-selected-date', this.formatDateForStorage(date));
                 }
                 
                 // Close popup after a short delay for visual feedback
