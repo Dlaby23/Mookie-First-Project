@@ -121,6 +121,12 @@ class CalendarManager {
             thaiIndicator.style.backgroundColor = thaiSpecialDate.color;
             thaiIndicator.setAttribute('title', thaiSpecialDate.name);
             dayElement.appendChild(thaiIndicator);
+            
+            // Add holiday name text on calendar
+            const holidayNameEl = document.createElement('div');
+            holidayNameEl.className = 'holiday-name-text';
+            holidayNameEl.textContent = thaiSpecialDate.name;
+            dayElement.appendChild(holidayNameEl);
         }
         
         // Create todo indicators container
