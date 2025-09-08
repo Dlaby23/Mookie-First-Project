@@ -372,7 +372,7 @@ body {
 }
 
 .calendar-day.monday .day-number {
-    color: #b8860b;
+    color: var(--monday-color);
 }
 
 .calendar-day.tuesday .day-number {
