@@ -435,6 +435,15 @@ body {
     position: relative;
     margin-top: -10px;
     margin-bottom: -10px;
+    transition: all 0.3s ease;
+}
+
+/* When today's date is selected, override with blue circle */
+.calendar-day.today.selected .day-number {
+    border-color: var(--primary-color);
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
 }
 /* Todo Indicators */
 .todo-indicators {
