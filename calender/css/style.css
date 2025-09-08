@@ -311,13 +311,6 @@ body {
     border-radius: var(--radius-md);
 }
 
-.weekday.sunday { color: var(--sunday-color); background-color: rgba(255, 71, 87, 0.1); }
-.weekday.monday { color: var(--monday-color); background-color: rgba(255, 215, 0, 0.1); }
-.weekday.tuesday { color: var(--tuesday-color); background-color: rgba(255, 107, 157, 0.1); }
-.weekday.wednesday { color: var(--wednesday-color); background-color: rgba(46, 213, 115, 0.1); }
-.weekday.thursday { color: var(--thursday-color); background-color: rgba(255, 167, 38, 0.1); }
-.weekday.friday { color: var(--friday-color); background-color: rgba(59, 130, 246, 0.1); }
-.weekday.saturday { color: var(--saturday-color); background-color: rgba(156, 39, 176, 0.1); }
 
 /* Calendar Grid */
 .calendar-grid {
@@ -393,44 +386,30 @@ body {
 /* Modern day-specific colors - subtle backgrounds */
 .calendar-day.sunday .day-number {
     color: var(--sunday-color);
-    background-color: rgba(255, 71, 87, 0.08);
-    border: 1px solid rgba(255, 71, 87, 0.15);
 }
 
 .calendar-day.monday .day-number {
     color: #b8860b;
-    background-color: rgba(255, 215, 0, 0.08);
-    border: 1px solid rgba(255, 215, 0, 0.15);
 }
 
 .calendar-day.tuesday .day-number {
     color: var(--tuesday-color);
-    background-color: rgba(255, 107, 157, 0.08);
-    border: 1px solid rgba(255, 107, 157, 0.15);
 }
 
 .calendar-day.wednesday .day-number {
     color: var(--wednesday-color);
-    background-color: rgba(46, 213, 115, 0.08);
-    border: 1px solid rgba(46, 213, 115, 0.15);
 }
 
 .calendar-day.thursday .day-number {
     color: var(--thursday-color);
-    background-color: rgba(255, 167, 38, 0.08);
-    border: 1px solid rgba(255, 167, 38, 0.15);
 }
 
 .calendar-day.friday .day-number {
     color: var(--friday-color);
-    background-color: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.15);
 }
 
 .calendar-day.saturday .day-number {
     color: var(--saturday-color);
-    background-color: rgba(156, 39, 176, 0.08);
-    border: 1px solid rgba(156, 39, 176, 0.15);
 }
 
 .calendar-day:hover .day-number {
@@ -629,17 +608,14 @@ body {
 }
 
 .todo-priority.high {
-    background-color: rgba(239, 68, 68, 0.1);
     color: var(--high-priority);
 }
 
 .todo-priority.medium {
-    background-color: rgba(245, 158, 11, 0.1);
     color: var(--medium-priority);
 }
 
 .todo-priority.low {
-    background-color: rgba(16, 185, 129, 0.1);
     color: var(--low-priority);
 }
 
@@ -651,27 +627,22 @@ body {
 }
 
 .todo-category.work {
-    background-color: rgba(59, 130, 246, 0.1);
     color: var(--work-color);
 }
 
 .todo-category.personal {
-    background-color: rgba(139, 92, 246, 0.1);
     color: var(--personal-color);
 }
 
 .todo-category.health {
-    background-color: rgba(16, 185, 129, 0.1);
     color: var(--health-color);
 }
 
 .todo-category.shopping {
-    background-color: rgba(245, 158, 11, 0.1);
     color: var(--shopping-color);
 }
 
 .todo-category.other {
-    background-color: rgba(100, 116, 139, 0.1);
     color: var(--other-color);
 }
 
@@ -700,21 +671,17 @@ body {
 }
 
 .edit-todo {
-    background-color: rgba(59, 130, 246, 0.1);
     color: var(--primary-color);
 }
 
 .edit-todo:hover {
-    background-color: rgba(59, 130, 246, 0.2);
 }
 
 .delete-todo {
-    background-color: rgba(239, 68, 68, 0.1);
     color: var(--danger-color);
 }
 
 .delete-todo:hover {
-    background-color: rgba(239, 68, 68, 0.2);
 }
 
 /* Modal */
@@ -724,7 +691,6 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
