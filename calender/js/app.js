@@ -307,6 +307,22 @@ class CalendarApp {
         
         if (!modal || !modalTitle || !form) return;
         
+        // Set date constraints for current month (applies to both add and edit)
+        const dateInput = document.getElementById('todoDate');
+        if (dateInput) {
+            const currentDate = this.currentDate;
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            // First day of current month
+            const firstDay = new Date(year, month, 1);
+            // Last day of current month  
+            const lastDay = new Date(year, month + 1, 0);
+            
+            dateInput.min = this.formatDateForInput(firstDay);
+            dateInput.max = this.formatDateForInput(lastDay);
+        }
+        
         // Set modal title and form data
         if (todo) {
             modalTitle.textContent = 'Edit Todo';
@@ -316,11 +332,8 @@ class CalendarApp {
             this.clearForm();
             
             // Pre-fill date if a date is selected
-            if (this.selectedDate) {
-                const dateInput = document.getElementById('todoDate');
-                if (dateInput) {
-                    dateInput.value = this.formatDateForInput(this.selectedDate);
-                }
+            if (this.selectedDate && dateInput) {
+                dateInput.value = this.formatDateForInput(this.selectedDate);
             }
         }
         
