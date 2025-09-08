@@ -466,26 +466,7 @@ body {
     font-weight: 600;
 }
 
-/* Thai holiday types with different border styles */
-.calendar-day.thai-special[data-thai-type="national"] {
-    border-left: 3px solid #ef4444;
-}
-
-.calendar-day.thai-special[data-thai-type="royal"] {
-    border-left: 3px solid #7c3aed;
-}
-
-.calendar-day.thai-special[data-thai-type="buddhist"] {
-    border-left: 3px solid #f59e0b;
-}
-
-.calendar-day.thai-special[data-thai-type="festival"] {
-    border-left: 3px solid #06b6d4;
-}
-
-.calendar-day.thai-special[data-thai-type="international"] {
-    border-left: 3px solid #ec4899;
-}
+/* Removed border styles - keeping only dots */
 
 /* Hover effect for Thai special dates */
 .calendar-day.thai-special:hover {
