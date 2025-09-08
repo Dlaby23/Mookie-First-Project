@@ -38,6 +38,7 @@ class TodoManager {
         this.app.closeTodoModal();
         this.app.calendar.render();
         this.app.updateTodoPanel();
+        this.app.updateAllTodosList();
         this.app.showNotification(
             this.app.currentEditingTodo ? 'Todo updated successfully!' : 'Todo created successfully!',
             'success'
@@ -97,6 +98,7 @@ class TodoManager {
         this.app.saveTodos();
         this.app.calendar.render();
         this.app.updateTodoPanel();
+        this.app.updateAllTodosList();
         this.app.showNotification('Todo deleted successfully!', 'success');
     }
     
@@ -117,11 +119,17 @@ class TodoManager {
         this.app.saveTodos();
         this.app.calendar.updateTodoIndicators();
         this.app.updateTodoPanel();
+        this.app.updateAllTodosList();
         
         this.app.showNotification(
             todo.completed ? 'Todo marked as complete!' : 'Todo marked as incomplete!',
             'success'
         );
+    }
+    
+    // Toggle todo method for checkbox in all todos list
+    toggleTodo(todoId) {
+        this.toggleTodoComplete(todoId);
     }
     
     // Form Management

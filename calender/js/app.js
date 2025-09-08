@@ -32,6 +32,9 @@ class CalendarApp {
             // Render initial calendar
             this.calendar.render();
             
+            // Render all todos list
+            this.updateAllTodosList();
+            
             // Don't auto-select today's date - let user select manually
             
             console.log('Calendar app initialized successfully');
@@ -91,6 +94,7 @@ class CalendarApp {
         // Todo panel
         const closePanelBtn = document.getElementById('closePanelBtn');
         const addTodoFromPanel = document.getElementById('addTodoFromPanel');
+        const addFirstTodo = document.getElementById('addFirstTodo');
         
         if (closePanelBtn) {
             closePanelBtn.addEventListener('click', () => this.closeTodoPanel());
@@ -98,6 +102,10 @@ class CalendarApp {
         
         if (addTodoFromPanel) {
             addTodoFromPanel.addEventListener('click', () => this.openTodoModal());
+        }
+        
+        if (addFirstTodo) {
+            addFirstTodo.addEventListener('click', () => this.openTodoModal());
         }
         
         // Modal
@@ -422,6 +430,9 @@ class CalendarApp {
         if (this.selectedDate) {
             this.updateTodoPanel();
         }
+        
+        // Update all todos list
+        this.updateAllTodosList();
     }
     
     // Data Methods
@@ -821,6 +832,152 @@ class CalendarApp {
             
             grid.appendChild(dayBtn);
         }
+    }
+    
+    // Update All Todos List
+    updateAllTodosList() {
+        const allTodosListEl = document.getElementById('allTodosList');
+        const todosCountEl = document.getElementById('todosCount');
+        
+        if (!allTodosListEl) return;
+        
+        // Update todo count
+        if (todosCountEl) {
+            const totalTodos = this.todos.length;
+            const completedTodos = this.todos.filter(todo => todo.completed).length;
+            todosCountEl.textContent = `${totalTodos} todos (${completedTodos} completed)`;
+        }
+        
+        // Check if there are any todos
+        if (this.filteredTodos.length === 0) {
+            allTodosListEl.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>No todos yet</p>
+                    <button class="btn btn-primary" id="addFirstTodo">
+                        Create your first todo
+                    </button>
+                </div>
+            `;
+            
+            // Re-attach event listener for add first todo
+            const addBtn = allTodosListEl.querySelector('#addFirstTodo');
+            if (addBtn) {
+                addBtn.addEventListener('click', () => this.openTodoModal());
+            }
+            return;
+        }
+        
+        // Group todos by date
+        const todosByDate = {};
+        this.filteredTodos.forEach(todo => {
+            if (!todosByDate[todo.date]) {
+                todosByDate[todo.date] = [];
+            }
+            todosByDate[todo.date].push(todo);
+        });
+        
+        // Sort dates in ascending order
+        const sortedDates = Object.keys(todosByDate).sort();
+        
+        // Build HTML for all todos
+        let html = '';
+        sortedDates.forEach(dateStr => {
+            const todos = todosByDate[dateStr];
+            const date = new Date(dateStr + 'T00:00:00'); // Ensure proper date parsing
+            const formattedDate = this.formatDate(date);
+            const isToday = this.isToday(date);
+            
+            html += `
+                <div class="todos-by-date">
+                    <h4 class="date-header ${isToday ? 'today' : ''}">
+                        <i class="fas fa-calendar"></i>
+                        ${formattedDate}
+                        ${isToday ? '<span class="today-badge">Today</span>' : ''}
+                    </h4>
+                    <div class="date-todos">
+            `;
+            
+            todos.forEach(todo => {
+                html += this.renderAllTodoItem(todo);
+            });
+            
+            html += `
+                    </div>
+                </div>
+            `;
+        });
+        
+        allTodosListEl.innerHTML = html;
+        
+        // Attach event listeners to todo items
+        this.todoManager.attachTodoEventListeners(allTodosListEl);
+    }
+    
+    // Render todo item for all todos list
+    renderAllTodoItem(todo) {
+        const priorityIcon = {
+            high: 'fas fa-exclamation-circle',
+            medium: 'fas fa-minus-circle',
+            low: 'fas fa-circle'
+        };
+        
+        const categoryIcon = {
+            work: 'fas fa-briefcase',
+            personal: 'fas fa-user',
+            health: 'fas fa-heartbeat',
+            shopping: 'fas fa-shopping-cart',
+            other: 'fas fa-tag'
+        };
+        
+        const timeDisplay = todo.time ? `<span class="todo-time"><i class="fas fa-clock"></i> ${todo.time}</span>` : '';
+        const timezoneDisplay = todo.timezone && todo.timezone !== 'Asia/Bangkok' ? `<span class="todo-timezone">${todo.timezone}</span>` : '';
+        
+        return `
+            <div class="all-todo-item ${todo.completed ? 'completed' : ''} ${todo.priority}-priority" data-todo-id="${todo.id}">
+                <div class="todo-check">
+                    <input type="checkbox" ${todo.completed ? 'checked' : ''} onchange="calendarApp.todoManager.toggleTodo('${todo.id}')">
+                </div>
+                <div class="todo-content">
+                    <div class="todo-header">
+                        <h5 class="todo-title">${this.escapeHtml(todo.title)}</h5>
+                        <div class="todo-meta">
+                            <span class="todo-category ${todo.category}">
+                                <i class="${categoryIcon[todo.category] || 'fas fa-tag'}"></i>
+                                ${todo.category}
+                            </span>
+                            <span class="todo-priority ${todo.priority}">
+                                <i class="${priorityIcon[todo.priority] || 'fas fa-circle'}"></i>
+                                ${todo.priority}
+                            </span>
+                            ${timeDisplay}
+                            ${timezoneDisplay}
+                        </div>
+                    </div>
+                    ${todo.description ? `<p class="todo-description">${this.escapeHtml(todo.description)}</p>` : ''}
+                </div>
+                <div class="todo-actions">
+                    <button class="btn-icon" onclick="calendarApp.todoManager.editTodo('${todo.id}')" title="Edit todo">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn-icon delete" onclick="calendarApp.todoManager.deleteTodo('${todo.id}')" title="Delete todo">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+    
+    // Utility method to escape HTML
+    escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
     }
 }
 
