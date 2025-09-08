@@ -307,20 +307,28 @@ class CalendarApp {
         
         if (!modal || !modalTitle || !form) return;
         
-        // Set date constraints to current month only
-        const dateInput = document.getElementById('todoDate');
-        if (dateInput) {
+        // Populate date select with current month dates
+        const dateSelect = document.getElementById('todoDate');
+        if (dateSelect) {
             const currentDate = this.currentDate;
             const year = currentDate.getFullYear();
             const month = currentDate.getMonth();
             
-            // First day of current month
-            const firstDay = new Date(year, month, 1);
-            // Last day of current month
-            const lastDay = new Date(year, month + 1, 0);
+            // Get number of days in current month
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
             
-            dateInput.min = this.formatDateForInput(firstDay);
-            dateInput.max = this.formatDateForInput(lastDay);
+            // Clear existing options
+            dateSelect.innerHTML = '<option value="">Select date...</option>';
+            
+            // Add option for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const date = new Date(year, month, day);
+                const dateStr = this.formatDateForInput(date);
+                const option = document.createElement('option');
+                option.value = dateStr;
+                option.textContent = `${day}${this.getOrdinalSuffix(day)} - ${this.formatDate(date)}`;
+                dateSelect.appendChild(option);
+            }
         }
         
         // Set modal title and form data
@@ -332,8 +340,8 @@ class CalendarApp {
             this.clearForm();
             
             // Pre-fill date if a date is selected
-            if (this.selectedDate && dateInput) {
-                dateInput.value = this.formatDateForInput(this.selectedDate);
+            if (this.selectedDate && dateSelect) {
+                dateSelect.value = this.formatDateForInput(this.selectedDate);
             }
         }
         
@@ -662,6 +670,19 @@ class CalendarApp {
     isThaiSpecialDate(date) {
         const dateStr = this.formatDateForStorage(date);
         return this.thaiSpecialDates[dateStr] || null;
+    }
+    
+    // Get ordinal suffix for day numbers (1st, 2nd, 3rd, etc.)
+    getOrdinalSuffix(day) {
+        if (day >= 11 && day <= 13) {
+            return 'th';
+        }
+        switch (day % 10) {
+            case 1: return 'st';
+            case 2: return 'nd';
+            case 3: return 'rd';
+            default: return 'th';
+        }
     }
 }
 
