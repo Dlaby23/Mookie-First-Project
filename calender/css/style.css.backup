@@ -77,7 +77,7 @@
 body {
     font-family: var(--font-family);
     background-color: var(--white);
-    color: var(--black);
+    color: var(--white);
     line-height: 1.6;
     font-size: 14px;
     overflow-x: hidden;
@@ -108,7 +108,7 @@ body {
 .app-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--black);
+    color: var(--white);
     margin-bottom: var(--spacing-xs);
     letter-spacing: -0.025em;
 }
@@ -169,7 +169,7 @@ body {
 .calendar-nav {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
 }
@@ -195,19 +195,11 @@ body {
 }
 
 .current-month {
-    position: absolute;
-    top: var(--spacing-lg);
-    right: var(--spacing-lg);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: var(--black);
-    text-align: right;
-    margin: 0;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    color: var(--white);
+    min-width: 200px;
+    text-align: center;
 }
 
 /* Filter Bar */
@@ -285,7 +277,6 @@ body {
 /* Calendar Container */
 .calendar-container {
     background-color: var(--white);
-    position: relative;
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     box-shadow: var(--shadow-lg);
@@ -352,7 +343,7 @@ body {
 
 .calendar-day.today {
     box-shadow: var(--shadow-lg);
-    border-color: var(--black);
+    border-color: var(--white);
 }
 
 .calendar-day.other-month {
@@ -477,7 +468,7 @@ body {
 .panel-header h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--black);
+    color: var(--white);
 }
 
 .close-panel {
@@ -570,7 +561,7 @@ body {
 .todo-title {
     font-weight: 500;
     margin-bottom: var(--spacing-xs);
-    color: var(--black);
+    color: var(--white);
 }
 
 .todo-title.completed {
@@ -743,7 +734,7 @@ body {
 .modal-header h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--black);
+    color: var(--white);
 }
 
 .close-modal {
@@ -784,7 +775,7 @@ body {
     display: block;
     margin-bottom: var(--spacing-xs);
     font-weight: 500;
-    color: var(--black);
+    color: var(--white);
     font-size: 0.875rem;
 }
 
