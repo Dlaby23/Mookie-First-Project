@@ -311,6 +311,35 @@ body {
     border-radius: var(--radius-md);
 }
 
+/* Weekday header colors */
+.weekday.sunday {
+    color: #ff0000; /* Red */
+}
+
+.weekday.monday {
+    color: #ffff00; /* Yellow */
+}
+
+.weekday.tuesday {
+    color: #ff69b4; /* Pink */
+}
+
+.weekday.wednesday {
+    color: #00ff00; /* Green */
+}
+
+.weekday.thursday {
+    color: #ffa726; /* Orange */
+}
+
+.weekday.friday {
+    color: #0000ff; /* Blue */
+}
+
+.weekday.saturday {
+    color: #800080; /* Purple */
+}
+
 
 /* Calendar Grid */
 .calendar-grid {
