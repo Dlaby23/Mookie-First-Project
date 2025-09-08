@@ -195,19 +195,12 @@ body {
 }
 
 .current-month {
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-lg);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--black);
-    text-align: right;
-    margin: 0;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    text-align: center;
+    margin: 0 0 var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
 }
 
 /* Filter Bar */
