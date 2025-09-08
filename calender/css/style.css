@@ -196,7 +196,7 @@ body {
 
 .current-month {
     position: absolute;
-    top: var(--spacing-lg);
+    top: var(--spacing-sm);
     right: var(--spacing-lg);
     font-size: 1.25rem;
     font-weight: 600;
