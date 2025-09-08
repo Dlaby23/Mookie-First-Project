@@ -360,76 +360,98 @@ body {
     opacity: 0.3;
 }
 
-/* Cartoon-style Date Numbers */
+/* Modern Minimal Date Numbers */
 .day-number {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.125rem;
+    font-weight: 500;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     margin-bottom: var(--spacing-xs);
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-full);
-    min-width: 40px;
-    height: 40px;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    min-width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transition: all 0.2s ease;
+    letter-spacing: 0;
 }
 
 .day-number::before {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 30%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
-    border-radius: var(--radius-full);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-sm);
+    opacity: 0.1;
+    transition: opacity 0.2s ease;
 }
 
-/* Day-specific colors for cartoon numbers */
+/* Modern day-specific colors - subtle backgrounds */
 .calendar-day.sunday .day-number {
-    background: linear-gradient(135deg, var(--sunday-color) 0%, #e74c3c 100%);
-    color: var(--white);
+    color: var(--sunday-color);
+    background-color: rgba(255, 71, 87, 0.08);
+    border: 1px solid rgba(255, 71, 87, 0.15);
 }
 
 .calendar-day.monday .day-number {
-    background: linear-gradient(135deg, var(--monday-color) 0%, #f39c12 100%);
-    color: var(--white);
+    color: #b8860b;
+    background-color: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.15);
 }
 
 .calendar-day.tuesday .day-number {
-    background: linear-gradient(135deg, var(--tuesday-color) 0%, #e91e63 100%);
-    color: var(--white);
+    color: var(--tuesday-color);
+    background-color: rgba(255, 107, 157, 0.08);
+    border: 1px solid rgba(255, 107, 157, 0.15);
 }
 
 .calendar-day.wednesday .day-number {
-    background: linear-gradient(135deg, var(--wednesday-color) 0%, #27ae60 100%);
-    color: var(--white);
+    color: var(--wednesday-color);
+    background-color: rgba(46, 213, 115, 0.08);
+    border: 1px solid rgba(46, 213, 115, 0.15);
 }
 
 .calendar-day.thursday .day-number {
-    background: linear-gradient(135deg, var(--thursday-color) 0%, #f39c12 100%);
-    color: var(--white);
+    color: var(--thursday-color);
+    background-color: rgba(255, 167, 38, 0.08);
+    border: 1px solid rgba(255, 167, 38, 0.15);
 }
 
 .calendar-day.friday .day-number {
-    background: linear-gradient(135deg, var(--friday-color) 0%, #2563eb 100%);
-    color: var(--white);
+    color: var(--friday-color);
+    background-color: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.15);
 }
 
 .calendar-day.saturday .day-number {
-    background: linear-gradient(135deg, var(--saturday-color) 0%, #7b1fa2 100%);
-    color: var(--white);
+    color: var(--saturday-color);
+    background-color: rgba(156, 39, 176, 0.08);
+    border: 1px solid rgba(156, 39, 176, 0.15);
 }
 
 .calendar-day:hover .day-number {
-    transform: scale(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.calendar-day:hover .day-number::before {
+    opacity: 0.2;
+}
+
+.calendar-day.selected .day-number {
+    font-weight: 600;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.calendar-day.today .day-number {
+    font-weight: 600;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.8);
+}
 /* Todo Indicators */
 .todo-indicators {
     display: flex;
