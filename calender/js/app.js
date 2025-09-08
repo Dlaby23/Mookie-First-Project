@@ -972,10 +972,10 @@ class CalendarApp {
                     ${todo.description ? `<p class="todo-description">${this.escapeHtml(todo.description)}</p>` : ''}
                 </div>
                 <div class="todo-actions">
-                    <button class="btn-icon" onclick="calendarApp.todoManager.editTodo('${todo.id}')" title="Edit todo">
+                    <button class="btn-icon edit-btn" onclick="calendarApp.todoManager.editTodo('${todo.id}')" title="Edit todo">
                         <i class="fas fa-edit"></i>
                     </button>
-                    <button class="btn-icon delete" onclick="calendarApp.todoManager.deleteTodo('${todo.id}')" title="Delete todo">
+                    <button class="btn-icon delete-btn" onclick="calendarApp.todoManager.deleteTodo('${todo.id}')" title="Delete todo">
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>

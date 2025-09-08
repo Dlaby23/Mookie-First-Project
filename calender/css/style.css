@@ -1076,31 +1076,48 @@ body {
 
 .all-todo-item .todo-actions {
     display: flex;
-    gap: 4px;
-    margin-top: 2px;
+    gap: 8px;
+    align-items: center;
+    margin-left: auto;
+    flex-shrink: 0;
 }
 
 .all-todo-item .btn-icon {
-    padding: 6px;
-    border: none;
-    background: transparent;
+    padding: 8px;
+    border: 1px solid var(--gray-300);
+    background: var(--white);
     border-radius: var(--radius-sm);
     cursor: pointer;
-    color: var(--gray-500);
+    color: var(--gray-600);
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 14px;
 }
 
 .all-todo-item .btn-icon:hover {
-    background: var(--gray-100);
-    color: var(--gray-700);
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
 }
 
-.all-todo-item .btn-icon.delete:hover {
+.all-todo-item .btn-icon.delete-btn:hover {
     background: var(--danger-color);
     color: white;
+    border-color: var(--danger-color);
+    transform: translateY(-1px);
+}
+
+.all-todo-item .edit-btn {
+    color: var(--primary-color);
+}
+
+.all-todo-item .delete-btn {
+    color: var(--danger-color);
 }
 
 /* Todo Indicators */
