@@ -1,0 +1,516 @@
+/* Mobile and Tablet Responsiveness */
+
+/* Large screens (1200px and up) */
+@media (max-width: 1200px) {
+    .dashboard-main {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .reports-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .settings-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Medium screens (768px - 1024px) */
+@media (max-width: 1024px) {
+    .main-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .app-header {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .header-left h1 {
+        font-size: var(--text-xl);
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-md);
+    }
+    
+    .stat-card {
+        padding: var(--spacing-md);
+    }
+    
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: var(--text-base);
+    }
+    
+    .stat-value {
+        font-size: var(--text-lg);
+    }
+    
+    .expenses-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .expenses-controls {
+        justify-content: between;
+    }
+    
+    .expense-item {
+        grid-template-columns: 80px 2fr 100px 70px 120px 40px;
+        gap: var(--spacing-sm);
+        font-size: var(--text-sm);
+    }
+    
+    .expense-converted {
+        display: none;
+    }
+    
+    .quick-form .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .reports-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .calendar-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Small screens (480px - 768px) */
+@media (max-width: 768px) {
+    .app-header {
+        padding: var(--spacing-md);
+    }
+    
+    .header-right {
+        gap: var(--spacing-md);
+    }
+    
+    .currency-display span {
+        display: none;
+    }
+    
+    .app-nav {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .nav-item {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--text-xs);
+    }
+    
+    .nav-item span {
+        display: none;
+    }
+    
+    .main-content {
+        padding: var(--spacing-md);
+    }
+    
+    .dashboard-grid {
+        gap: var(--spacing-lg);
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    
+    .stat-card {
+        padding: var(--spacing-sm);
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+        font-size: var(--text-sm);
+    }
+    
+    .stat-info h3 {
+        font-size: var(--text-xs);
+    }
+    
+    .stat-value {
+        font-size: var(--text-base);
+    }
+    
+    .quick-add-section, .recent-expenses {
+        padding: var(--spacing-md);
+    }
+    
+    .quick-add-section h2, .recent-expenses h2 {
+        font-size: var(--text-base);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .expenses-header h2 {
+        font-size: var(--text-xl);
+    }
+    
+    .expenses-controls {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .search-box input {
+        min-width: 100%;
+    }
+    
+    .filter-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .expense-item {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-md);
+        text-align: left;
+    }
+    
+    .expense-item-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .expense-header-mobile {
+        display: flex;
+        justify-content: between;
+        align-items: center;
+    }
+    
+    .expense-details-mobile {
+        display: flex;
+        justify-content: between;
+        align-items: center;
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+    }
+    
+    .reports-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .report-card {
+        padding: var(--spacing-md);
+    }
+    
+    .report-card h3 {
+        font-size: var(--text-base);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .settings-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .settings-card {
+        padding: var(--spacing-md);
+    }
+    
+    .setting-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-xs);
+    }
+    
+    .modal {
+        width: 95%;
+        margin: var(--spacing-md);
+    }
+    
+    .modal-header {
+        padding: var(--spacing-md);
+    }
+    
+    .modal-body {
+        padding: var(--spacing-md);
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .fab {
+        display: flex;
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+        width: 48px;
+        height: 48px;
+        font-size: var(--text-base);
+    }
+    
+    .chart-section {
+        padding: var(--spacing-md);
+    }
+    
+    .calendar-container {
+        padding: var(--spacing-md);
+        min-height: 400px;
+    }
+}
+
+/* Extra small screens (320px - 480px) */
+@media (max-width: 480px) {
+    .app-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .header-left h1 {
+        font-size: var(--text-lg);
+    }
+    
+    .app-subtitle {
+        font-size: var(--text-xs);
+    }
+    
+    .header-right {
+        gap: var(--spacing-sm);
+    }
+    
+    .theme-toggle, .currency-display {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .app-nav {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .nav-item {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        min-width: 44px;
+    }
+    
+    .main-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .stat-card {
+        padding: var(--spacing-xs);
+    }
+    
+    .stat-icon {
+        width: 32px;
+        height: 32px;
+        font-size: var(--text-xs);
+    }
+    
+    .stat-info h3 {
+        font-size: 0.7rem;
+    }
+    
+    .stat-value {
+        font-size: var(--text-sm);
+    }
+    
+    .quick-add-section, .recent-expenses {
+        padding: var(--spacing-sm);
+    }
+    
+    .form-group {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--text-xs);
+    }
+    
+    .expenses-header h2 {
+        font-size: var(--text-lg);
+    }
+    
+    .expense-item {
+        padding: var(--spacing-sm);
+        font-size: var(--text-xs);
+    }
+    
+    .action-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+    
+    .reports-header h2 {
+        font-size: var(--text-lg);
+    }
+    
+    .report-controls {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .calendar-header h2 {
+        font-size: var(--text-lg);
+    }
+    
+    .calendar-controls {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .fab {
+        width: 44px;
+        height: 44px;
+        font-size: var(--text-sm);
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .app-header {
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
+    
+    .header-left h1 {
+        font-size: var(--text-base);
+    }
+    
+    .app-subtitle {
+        display: none;
+    }
+    
+    .nav-item {
+        padding: var(--spacing-xs);
+    }
+    
+    .main-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .stat-card {
+        padding: var(--spacing-xs);
+    }
+    
+    .stat-icon {
+        width: 28px;
+        height: 28px;
+        font-size: var(--text-xs);
+    }
+    
+    .modal {
+        max-height: 90vh;
+    }
+}
+
+/* Print styles */
+@media print {
+    .app-header,
+    .app-nav,
+    .fab,
+    .modal-overlay,
+    .action-btn {
+        display: none !important;
+    }
+    
+    .main-content {
+        padding: 0;
+        margin: 0;
+        max-width: none;
+    }
+    
+    .stat-card,
+    .expenses-table,
+    .report-card {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+    }
+    
+    * {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .action-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .nav-item {
+        min-height: 44px;
+    }
+    
+    .theme-toggle,
+    .currency-display {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .close-modal {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-muted: #404040;
+        --bg-tertiary: #f0f0f0;
+    }
+    
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-muted: #c0c0c0;
+        --bg-tertiary: #202020;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .fab:hover {
+        transform: none;
+    }
+    
+    .stat-card:hover {
+        transform: none;
+    }
+    
+    .btn-primary:hover {
+        transform: none;
+    }
+}
